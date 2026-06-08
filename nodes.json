@@ -1,0 +1,56 @@
+[
+    {
+        "node_id": 1,
+        "name": "WN02-2329-0001",
+        "ipv6": "fd12:3456::eae:5fff:fe52:6695",
+        "port": 5683,
+        "api_url": "https://ctop.iiit.ac.in/api/nodes/create-cin/388",
+        "api_token": "380cc181d46ebc2b963d11a1e71ae6d7",
+        "enabled": true
+    },
+    {
+        "node_id": 2,
+        "name": "WN02-2329-0002",
+        "ipv6": "fd12:3456::eae:5fff:fe52:6646",
+        "port": 5683,
+        "api_url": "https://ctop.iiit.ac.in/api/nodes/create-cin/389",
+        "api_token": "d6ef6861fa223ad861ac08ff36edc00e",
+        "enabled": true
+    },
+    {
+        "node_id": 3,
+        "name": "WN02-2329-0003",
+        "ipv6": "fd12:3456::8e73:daff:feba:36d8",
+        "port": 5683,
+        "api_url": "https://ctop.iiit.ac.in/api/nodes/create-cin/407",
+        "api_token": "7da55e856564e53f140459e9d473b589",
+        "enabled": true
+    },
+    { 
+	"node_id": 4,
+        "name": "WN02-2329-0004",
+        "ipv6": "fd12:3456::8e73:daff:feba:3717",
+        "port": 5683,
+        "api_url": "https://ctop.iiit.ac.in/api/nodes/create-cin/408",
+        "api_token": "9a790fdedfd06316fa41490410db0e35",
+        "enabled": true
+    },
+    {
+	"node_id": 5,
+        "name": "WN02-2329-0005",
+        "ipv6": "fd12:3456::8e73:daff:feba:3548",
+        "port": 5683,
+        "api_url": "https://ctop.iiit.ac.in/api/nodes/create-cin/409",
+        "api_token": "63925bfba3898f3ad06f4470626e85a8",
+        "enabled": true
+    },
+    {
+	"node_id": 5,
+        "name": "WN02-2329-0005",
+        "ipv6": "fd12:3456::8e73:daff:feba:39bf",
+        "port": 5683,
+        "api_url": "https://ctop.iiit.ac.in/api/nodes/create-cin/410",
+        "api_token": "09ad4a7a6bd777c455f0817ffe56f9f6",
+        "enabled": true
+    }
+]
