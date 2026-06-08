@@ -45,8 +45,8 @@
         "enabled": true
     },
     {
-	"node_id": 5,
-        "name": "WN02-2329-0005",
+	"node_id": 6,
+        "name": "WN02-2329-0006",
         "ipv6": "fd12:3456::8e73:daff:feba:39bf",
         "port": 5683,
         "api_url": "https://ctop.iiit.ac.in/api/nodes/create-cin/410",
