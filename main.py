@@ -8,7 +8,7 @@ from csv_storage import append_sensor_row
 from data_mapper import map_sensor_data
 from data_poster import post_payload
 from logging_config import setup_logging
-
+from config import get_api_details
 
 POLL_INTERVAL_SECONDS = 600
 COAP_ENDPOINT = "sensorStatus"
@@ -38,8 +38,16 @@ def process_node(node, logger):
     ipv6 = node.get("ipv6")
     port = int(node.get("port", 5683))
     endpoint = COAP_ENDPOINT
-    api_url = node.get("api_url")
-    api_token = node.get("api_token")
+    node_id = node["node_id"]
+    try:
+        api_url, api_token = get_api_details(node_id)
+    except Exception as e:
+        logger.error(
+            "Failed loading API config for node %s : %s",
+            node_name,
+            e,
+        )
+        return
 
     if not ipv6:
         logger.error("Node '%s' is missing IPv6 address. Skipping.", node_name)
@@ -128,8 +136,8 @@ def main():
     logger.info("COAP to REST bridge started")
     logger.debug("Poll interval configured to %s seconds", POLL_INTERVAL_SECONDS)
 
-    while True:
-        try:
+    try:
+        while True:
             nodes = load_nodes("nodes.json")
             logger.debug("Loaded %s enabled node(s)", len(nodes))
             if not nodes:
@@ -145,14 +153,20 @@ def main():
                         node_error,
                     )
                     traceback.print_exc()
+            logger.info("Sleeping for %s seconds", POLL_INTERVAL_SECONDS)
+            time.sleep(POLL_INTERVAL_SECONDS)
 
-        except Exception as loop_error:
-            logger.error("Main loop error: %s", loop_error)
-            traceback.print_exc()
+    except Exception as loop_error:
+        logger.error("Main loop error: %s", loop_error)
+        traceback.print_exc()
 
-        logger.info("Sleeping for %s seconds", POLL_INTERVAL_SECONDS)
-        time.sleep(POLL_INTERVAL_SECONDS)
+       
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+
+    except KeyboardInterrupt:
+        print()
+        print("Application stopped by user.")

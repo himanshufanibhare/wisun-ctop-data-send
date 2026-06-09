@@ -19,11 +19,11 @@ CSV_FIELDS = [
     "disconnectivity",
     "connectivity",
     "availability",
-    "rpl_rank",
-    "ipv6",
+    "rpl",
+    "ipv6_address",
     "temperature",
-    "relative_humidity",
-    "ambient_light",
+    "humidity",
+    "lux",
 ]
 
 

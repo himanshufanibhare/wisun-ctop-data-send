@@ -24,6 +24,7 @@ def setup_logging(
     log_file_path = resolved_log_dir / LOG_FILE_NAME
 
     logger = logging.getLogger("coap_rest_bridge")
+    logger.propagate = False
     logger.setLevel(logging.DEBUG)
     logger.handlers.clear()
 
